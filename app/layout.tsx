@@ -34,10 +34,10 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <main className="overflow-x-hidden h-screen w-screen">
+        <main className="overflow-x-hidden min-h-[100vh] bg-[rgb(30,30,30)]">
           <ConvexClientProvider>
             <Toaster />
-            {children}
+            <main className="w-[80vw] mx-auto">{children}</main>
           </ConvexClientProvider>
         </main>
       </body>

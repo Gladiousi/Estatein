@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Id } from "@/convex/_generated/dataModel";
 import Image from "next/image";
 import { api } from "@/convex/_generated/api";
 import { cn } from "@/lib/utils";
@@ -9,6 +10,15 @@ import { useQuery } from "convex/react";
 interface IApartmentList {
   isClient?: boolean;
   access?: boolean;
+}
+
+interface IApartment {
+  _id: Id<"apartments">;
+  _creationTime: number;
+  image: string;
+  id: string;
+  name: string;
+  price: number;
 }
 
 export const ApartmentList = ({ isClient, access }: IApartmentList) => {
@@ -39,7 +49,7 @@ export const ApartmentList = ({ isClient, access }: IApartmentList) => {
           className="grid grid-cols-1 md:grid-cols-2 md:gap-x-4 lg:grid-cols-3 backdrop-filter backdrop-blur-[15px]
           bg-white/10 px-2 py-6 rounded-sm h-max"
         >
-          {data?.map((apartment: any) => (
+          {data?.map((apartment: IApartment) => (
             <li
               key={apartment.id}
               className="flex flex-col w-full items-center mb-16"
