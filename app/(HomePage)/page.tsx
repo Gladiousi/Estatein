@@ -9,7 +9,9 @@ const HomePage = () => {
   return (
     <>
       <Navbar />
-      <ApartmentList />
+      <div>
+      <ApartmentList isClient access={true} />
+      </div>
       <Foter />
     </>
   );
